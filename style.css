@@ -1,3 +1,8 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 html,body{
 margin:0;
 padding:0;
@@ -174,9 +179,32 @@ font-size:1.5rem;
 margin-top:50px;
 font-size:1.5rem;
 }
-.post-body{word-wrap:break-word}.status-msg-wrap{display:none}
-.status-msg-body{display:none}.status-msg-border{display:none}
-span.post-author.vcard{display:none}h2.date-header{display:none}
-.status-msg-hidden{display:none!important}
-.home-link{display:none}.post-timestamp{display:none}
-.blog-feeds{display:none;}
+.post-body{
+  word-wrap:break-word;
+}
+.status-msg-wrap{
+  display:none;
+}
+.status-msg-body{
+  display:none;
+}.status-msg-border{
+  display:none;
+}
+span.post-author.vcard{
+  display:none;
+}
+h2.date-header{
+  display:none;
+}
+.status-msg-hidden{d
+  isplay:none!important;
+ }
+.home-link{
+  display:none;
+}
+.post-timestamp{
+  display:none;
+}
+.blog-feeds{
+  display:none;
+}
