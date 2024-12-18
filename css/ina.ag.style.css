@@ -146,47 +146,6 @@ font-family: "Oswald", serif;
 .post-labels a:hover{background:var(--bg-button);}
 
 
-article{
-text-align:left;
-padding:0 300px 0;
-}
-@media only screen and (max-width: 1200px) {
-article{
-text-align:left;
-padding:0 300px 0;
-}
-}
-@media only screen and (max-width: 1024px) {
-article{
-text-align:left;
-padding:0 50px 0;
-}
-}
-@media only screen and (max-width: 768px) {
-article{
-text-align:left;
-padding:0 50px 0;
-}
-}
-@media only screen and (max-width: 678px) {
-article{
-text-align:left;
-padding:0 15px 0;
-}
-}
-@media only screen and (max-width: 480px) {
-article{
-text-align:left;
-padding:0 15px 0;
-}
-}
-@media only screen and (max-width: 240px) {
-article{
-text-align:left;
-padding:0 5px 0;
-}
-}
-
 .Read___more{
 font-size:1.5rem;
 margin: 25px 15px 50px;
@@ -223,7 +182,7 @@ background:var(--bg-button);
 margin: 5px 0 0;
 }
 h1.post-title, entry-title{
-margin-bottom: 10px;
+margin-bottom: 5px;
 }
 
 .post-body img{
@@ -235,44 +194,6 @@ transition:transform 0.2s ease;
 }
 .post-body img:hover{
 transform:scale(1.1);
-}
-
-article .date-posts{
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap: 15px;
-text-align: center;
-}
-
-article{
-padding:0 50px 0 300px;
-}
-
-
-@media only screen and (max-width: 1024px) {
-article .date-posts{
-grid-template-columns: repeat(2,1fr);
-}
-article{
-padding:0 80px 0;
-}
-}
-
-@media only screen and (max-width: 768px) {
-article .date-posts{
-grid-template-columns: repeat(1,1fr);
-}
-article{
-padding:0 20px 0;
-}
-}
-@media only screen and (max-width: 480px) {
-article .date-posts{
-grid-template-columns: repeat(1,1fr);
-}
-article{
-padding:0 15px 0;
-}
 }
 
 .m__i a{
