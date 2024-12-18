@@ -83,9 +83,13 @@ body {
   text-align: center;
 }
 .loading .home p {
-  font-size: 40px;
-  font-weight: 100;
+  font-size: 3rem;
+  font-weight: bold;
   color: red;
+  position:fixed;
+  top:1rem;
+  left:1rem;
+  white-space:nowrap;
 }
 .loading .home h1 {
   color: white;
@@ -130,5 +134,23 @@ body {
 
 
   </main>
+<script>
+$(document).ready(function() {
+
+  var counter = 0;
+  var c = 0;
+  var i = setInterval(function(){
+      $(".loading .home h1").html(c + "%");
+      $(".loading .home hr").css("width", c + "%");
+
+    counter++;
+    c++;
+      
+    if(counter == 101) {
+        clearInterval(i);
+    }
+  }, 50);
+});
+</script>
 </body>
 </html>
