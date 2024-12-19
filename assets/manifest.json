@@ -1,21 +1,21 @@
 {
-  "name": "Ina App",
-  "short_name": "Web Developer",
-  "description": "Jasa pembuatan website profesional dengan desain elegan dan responsive all devices.",
-  "start_url": "https://www.ina.ag",
+  "name": "ina.ag",
+  "short_name": "Web Dev",
+  "description": "Membuat website desain elegant dan responsive all devices.",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiv9TFvKS5vbgKTq0nQw8O6M-Fw03GIzLugZO1jjz1qqMxHwyHZsIOoogXIbSxAXYLhyphenhyphen3-PCZHUR2LF6_83t9O30ZAoKUjT1o1FGuqgUE9uX7Pdgje5yQrwR0ZUlSLx73fSSrWLe6uKwv7UEAJdLNtnPJCPejKoOZ5P717tAtahBYl-2mbUiLZJ204mBhKB/s320-rw/gambar-ina-ag.webp",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiv9TFvKS5vbgKTq0nQw8O6M-Fw03GIzLugZO1jjz1qqMxHwyHZsIOoogXIbSxAXYLhyphenhyphen3-PCZHUR2LF6_83t9O30ZAoKUjT1o1FGuqgUE9uX7Pdgje5yQrwR0ZUlSLx73fSSrWLe6uKwv7UEAJdLNtnPJCPejKoOZ5P717tAtahBYl-2mbUiLZJ204mBhKB/s320-rw/gambar-ina-ag.webp",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
