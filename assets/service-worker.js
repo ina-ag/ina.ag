@@ -1,6 +1,6 @@
 const CACHE_NAME = 'blogger-pwa-cache-v1';
 
-// Ganti URL sesuai dengan struktur dan lokasi file Anda di Blogger
+
 const urlsToCache = [
     'https://www.ina.ag',
 
