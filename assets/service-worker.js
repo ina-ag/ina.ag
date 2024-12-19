@@ -2,9 +2,7 @@ const CACHE_NAME = 'blogger-pwa-cache-v1';
 
 
 const urlsToCache = [
-    'https://www.ina.ag',
-
-    'https://dev.ina.ag/css/ina.ag.style.css',
+    'https://dev.ina.ag/index/offline.html',
 
     'https://dev.ina.ag/assets/manifest.json'
 
