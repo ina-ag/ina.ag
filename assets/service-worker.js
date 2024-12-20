@@ -1,9 +1,9 @@
 const CACHE_NAME = 'v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
+    'https://www.ina.ag',
+    'https://www.ina.ag/p/index.html',
     'https://dev.ina.ag/css/ina.ag.style.css',
-    '/p/services.html',
+    'https://www.ina.ag/p/services.html',
 
 ];
 
