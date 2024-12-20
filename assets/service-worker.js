@@ -3,7 +3,7 @@ const CACHE_NAME = 'blogger-pwa-cache-v1';
 
 const urlsToCache = [
     
-    'https://dev.ina.ag/index/offline.html',
+    'https://www.ina.ag/',
 
     'https://dev.ina.ag/assets/manifest.json'
 
