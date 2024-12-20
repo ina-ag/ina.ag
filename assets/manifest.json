@@ -2,7 +2,7 @@
   "name": "ina.ag",
   "short_name": "Ina App",
   "description": "Membuat website desain elegant dan responsive all devices.",
-  "start_url": "/",
+  "start_url": "https://www.ina.ag",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#ffffff",
