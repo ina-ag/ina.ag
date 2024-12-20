@@ -1,28 +1,46 @@
-const CACHE_NAME = 'blogger-pwa-cache-v1';
-
-
+const CACHE_NAME = 'v1';
 const urlsToCache = [
-    
-    'https://www.ina.ag/',
-
-    'https://dev.ina.ag/assets/manifest.json'
+    '/',
+    '/index.html',
+    'https://dev.ina.ag/css/ina.ag.style.css',
+    '/p/services.html',
 
 ];
 
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache) {
-            return cache.addAll(urlsToCache);
+        caches.open(CACHE_NAME)
+            .then((cache) => {
+                console.log('Caching files');
+                return cache.addAll(urlsToCache);
+            })
+    );
+});
+
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((name) => {
+                    if (name !== CACHE_NAME) {
+                        console.log('Deleting old cache:', name);
+                        return caches.delete(name);
+                    }
+                })
+            );
         })
     );
 });
 
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then(function(response) {
-            return response || fetch(event.request);
-        })
+        caches.match(event.request)
+            .then((response) => {
+              
+                return response || fetch(event.request);
+            })
     );
 });
