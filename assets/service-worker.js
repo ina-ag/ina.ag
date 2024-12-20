@@ -1,12 +1,8 @@
 const CACHE_NAME = 'v1';
 const urlsToCache = [
-    'https://www.ina.ag',
-    'https://www.ina.ag/p/index.html',
-    'https://dev.ina.ag/css/ina.ag.style.css',
-    'https://www.ina.ag/p/services.html',
-
+    'https://dev.ina.ag/index/offline.html',
+    
 ];
-
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
