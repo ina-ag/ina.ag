@@ -1,6 +1,6 @@
 {
   "name": "ina.ag",
-  "short_name": "Web Dev",
+  "short_name": "Ina App",
   "description": "Membuat website desain elegant dan responsive all devices.",
   "start_url": "https://dev.ina.ag/index/offline.html",
   "display": "standalone",
