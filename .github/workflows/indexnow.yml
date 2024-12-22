@@ -1,0 +1,21 @@
+name: Notify IndexNow on Push
+
+on:
+  push:
+    branches:
+      - main
+
+    paths:
+      - '**/*.html'
+
+jobs:
+  notify_indexnow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Send IndexNow Notification
+        run: |
+          curl -X GET "https://www.indexnow.org/indexnow?url=https://www.ina.ag/${{ github.event.head_commit.id }}&key=a5a3c4a42fd44814a70e028506750dfe"
