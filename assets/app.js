@@ -1,6 +1,6 @@
         // Save button
 
-document.getElementById('inaHtml').addEventListener('input', function () {
+document.getElementById('inaHtml').addEventListener('keyup', function () {
     var htmlContent = document.getElementById('inaHtml').value;
     var iframe = document.getElementById('inaFrame');
     var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
