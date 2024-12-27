@@ -1,7 +1,7 @@
         // Save button
 
-document.getElementById('inaHtml').addEventListener('keyup', function () {
-    var htmlContent = document.getElementById('inaHtml').value;
+document.getElementById('inaHtml').addEventListener('input', function () {
+    var htmlContent = document.getElementById('inaHtml').innerHTML;
     var iframe = document.getElementById('inaFrame');
     var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
     
@@ -13,7 +13,7 @@ document.getElementById('inaHtml').addEventListener('keyup', function () {
 document.getElementById('saveBtn').addEventListener('click', function () {
     var fileExtension = document.getElementById('fileExtension').value;
     var filename = document.getElementById('filename').value || 'document';
-    var content = document.getElementById('inaHtml').value;
+    var content = document.getElementById('inaHtml').innerHTML;
     var blob, mimeType;
 
     switch (fileExtension) {
@@ -32,7 +32,7 @@ document.getElementById('saveBtn').addEventListener('click', function () {
             filename += '.js';
             break;
         default:
-            alert('Pilih ekstensi file yang valid!');
+            alert('Pilih ekstensi valid!');
             return;
     }
 
