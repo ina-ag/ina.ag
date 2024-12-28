@@ -1,42 +1,39 @@
-document.getElementById('inaHtml').addEventListener('input', function () {
-    var htmlContent = document.getElementById('inaHtml').value;
-    var iframe = document.getElementById('inaFrame');
-    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    
-    iframeDoc.open();
-    iframeDoc.write(htmlContent);
-    iframeDoc.close();
-});
+window.addEventListener('load', function() {
+  const gridContainer = document.querySelector('.blog-posts');
 
-document.getElementById('saveBtn').addEventListener('click', function () {
-    var fileExtension = document.getElementById('fileExtension').value;
-    var filename = document.getElementById('filename').value || 'document';
-    var content = document.getElementById('inaHtml').value;
-    var blob, mimeType;
+  if (gridContainer) {
+    gridContainer.style.display = 'grid';
+    gridContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    gridContainer.style.gridAutoRows = 'auto';
+    gridContainer.style.gap = '20px';
 
-    switch (fileExtension) {
-        case 'html':
-            mimeType = 'text/html';
-            filename += '.html';
-            break;
-        case 'css':
-            mimeType = 'text/css';
-            content = `/* CSS Content */\n${content}`;
-            filename += '.css';
-            break;
-        case 'js':
-            mimeType = 'application/javascript';
-            content = `// JavaScript Content\n${content}`;
-            filename += '.js';
-            break;
-        default:
-            alert('Pilih ekstensi file yang valid!');
-            return;
+    if (window.innerWidth <= 1024) {
+      gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    }
+    if (window.innerWidth <= 768) {
+      gridContainer.style.gridTemplateColumns = '1fr';
     }
 
-    var blob = new Blob([content], { type: mimeType });
-    var link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
+    const gridItems = gridContainer.querySelectorAll('.post');
+    gridItems.forEach(function(item) {
+      item.style.margin = '0';
+      item.style.padding = '10px';
+      item.style.minHeight = '300px';
+      item.style.boxSizing = 'border-box';
+    });
+  }
+
+  window.addEventListener('resize', function() {
+    const gridContainer = document.querySelector('.blog-posts');
+    
+    if (gridContainer) {
+      if (window.innerWidth <= 768) {
+        gridContainer.style.gridTemplateColumns = '1fr';
+      } else if (window.innerWidth <= 1024) {
+        gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+      } else {
+        gridContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';
+      }
+    }
+  });
 });
