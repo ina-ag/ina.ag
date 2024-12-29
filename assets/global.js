@@ -10,36 +10,19 @@
       }
 
       renderCart();
-      
-      showPopup();
       checkCheckoutButton();
+      
+      updateCartIcon();
     }
 
-
-    function updateQuantity(productName, quantity) {
-      const productIndex = cart.findIndex(item => item.name === productName);
-
-      if (productIndex !== -1 && quantity > 0) {
-        cart[productIndex].quantity = quantity;
-      } else {
-        cart.splice(productIndex, 1);
+    function updateCartIcon() {
+      const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+      const cartCountElement = document.getElementById('cart-count');
+      if (cartCountElement) {
+        cartCountElement.textContent = cartCount;
       }
-
-      renderCart();
-      
-      showPopup();
-      checkCheckoutButton();
     }
 
-    function removeProduct(productName) {
-      cart = cart.filter(item => item.name !== productName);
-      renderCart();
-      
-      showPopup();
-      checkCheckoutButton();
-    }
-
-    
     function renderCart() {
       const cartItemsContainer = document.getElementById('cart-items');
       const totalElement = document.getElementById('total');
@@ -87,17 +70,29 @@
       totalElement.textContent = `Total: Rp${totalPrice.toLocaleString()}`;
     }
 
+    function updateQuantity(productName, newQuantity) {
+      const productIndex = cart.findIndex(item => item.name === productName);
 
-    function showPopup() {
-      const popup = document.getElementById('popup');
-      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-      
-      if (totalItems > 0) {
-        popup.textContent = `Produk Total pesanan: ${totalItems} Cart. Cek out di bawah!`;
-        popup.style.display = 'block';
-      } else {
-        popup.style.display = 'none';
+      if (newQuantity <= 0) {
+        removeProduct(productName);
+      } else if (productIndex !== -1) {
+        cart[productIndex].quantity = newQuantity;
       }
+
+      renderCart();
+      updateCartIcon();
+      checkCheckoutButton();
+    }
+
+    function removeProduct(productName) {
+      const productIndex = cart.findIndex(item => item.name === productName);
+      if (productIndex !== -1) {
+        cart.splice(productIndex, 1);
+      }
+
+      renderCart();
+      updateCartIcon();
+      checkCheckoutButton();
     }
 
     function checkCheckoutButton() {
@@ -112,14 +107,42 @@
     function checkout() {
       if (cart.length > 0) {
         alert('Terima kasih telah berbelanja! ini adalah demo Toko Online responsive design.');
-
       } else {
         alert('Keranjang kosong. Silakan tambahkan produk terlebih dahulu.');
       }
     }
 
+    function toggleCartModal() {
+      const modal = document.getElementById('cart-modal');
+      modal.style.display = 'flex';
+      renderModalCart();
+    }
+
+    function closeCartModal() {
+      const modal = document.getElementById('cart-modal');
+      modal.style.display = 'none';
+    }
+
+    function renderModalCart() {
+      const modalCartItems = document.getElementById('modal-cart-items');
+      modalCartItems.innerHTML = '';
+
+      if (cart.length === 0) {
+        modalCartItems.innerHTML = '<p>Keranjang kosong.</p>';
+      } else {
+        cart.forEach(item => {
+          const cartItemDiv = document.createElement('div');
+          cartItemDiv.classList.add('cart-item');
+          cartItemDiv.innerHTML = `
+            <span>${item.name}</span>
+            <span>Rp${(item.price * item.quantity).toLocaleString()}</span>
+            <span>x${item.quantity}</span>
+          `;
+          modalCartItems.appendChild(cartItemDiv);
+        });
+      }
+    }
+
     window.onload = function() {
-      showPopup();
-      
       checkCheckoutButton();
     };
