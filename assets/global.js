@@ -170,26 +170,28 @@
 
 // this login
 
-        const openMenuLogin = document.getElementById('openMenuLogin');
-        const loginPopup = document.getElementById('loginPopup');
-        const closePopup = document.getElementById('closePopup');
-        const loginForm = document.getElementById('loginForm');
+document.addEventListener('DOMContentLoaded', function() {
+    const openMenuLogin = document.getElementById('openMenuLogin');
+    const loginPopup = document.getElementById('loginPopup');
+    const closePopup = document.getElementById('closePopup');
+    const loginForm = document.getElementById('loginForm');
 
-        openMenuLogin.addEventListener('click', function() {
-            loginPopup.style.display = 'flex';
-        });
+    openMenuLogin.addEventListener('click', function() {
+        loginPopup.style.display = 'flex';
+    });
 
-        closePopup.addEventListener('click', function() {
-            loginPopup.style.display = 'none';
-        });
+    closePopup.addEventListener('click', function() {
+        loginPopup.style.display = 'none';
+    });
 
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-            console.log(`Username: ${username}`);
-            console.log(`Password: ${password}`);
-            alert('Login Successful!');
-            loginPopup.style.display = 'none';
-        });
+        console.log(`Username: ${username}`);
+        console.log(`Password: ${password}`);
+        alert('Login Successful!');
+        loginPopup.style.display = 'none';
+    });
+});
