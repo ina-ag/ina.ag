@@ -195,3 +195,49 @@ document.addEventListener('DOMContentLoaded', function() {
         loginPopup.style.display = 'none';
     });
 });
+
+
+// menu
+
+        const openMenuProduk = document.getElementById('ina-menumenuproduk');
+        const produkPopup = document.getElementById('ina-menumenuprodukPopup');
+        const closePopup = document.getElementById('ina-closePopup');
+
+        const pakaianSubcategory = document.getElementById('ina-pakaianSubcategory');
+        const aksesoriSubcategory = document.getElementById('ina-aksesoriSubcategory');
+        const makananSubcategory = document.getElementById('ina-makananSubcategory');
+
+        const pakaianBtn = document.getElementById('ina-pakaianBtn');
+        const aksesoriBtn = document.getElementById('ina-aksesoriBtn');
+        const makananBtn = document.getElementById('ina-makananBtn');
+
+        openMenuProduk.addEventListener('click', function() {
+            produkPopup.style.display = 'flex';
+        });
+
+        closePopup.addEventListener('click', function() {
+            produkPopup.style.display = 'none';
+        });
+
+        pakaianBtn.addEventListener('click', function() {
+            toggleSubcategory(pakaianSubcategory);
+        });
+
+        aksesoriBtn.addEventListener('click', function() {
+            toggleSubcategory(aksesoriSubcategory);
+        });
+
+        makananBtn.addEventListener('click', function() {
+            toggleSubcategory(makananSubcategory);
+        });
+
+        function toggleSubcategory(subcategory) {
+            if (subcategory.style.display === 'block') {
+                subcategory.style.display = 'none';
+            } else {
+                pakaianSubcategory.style.display = 'none';
+                aksesoriSubcategory.style.display = 'none';
+                makananSubcategory.style.display = 'none';
+                subcategory.style.display = 'block';
+            }
+        }
