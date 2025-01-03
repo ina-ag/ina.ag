@@ -1,4 +1,9 @@
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// 2024
+// dev_ina
+// web design Global
+// https://www.ina.ag/
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   function addToCart(productName, price) {
     const existingProductIndex = cart.findIndex(item => item.name === productName);
@@ -269,3 +274,23 @@ window.addEventListener('scroll', checkVisibility);
 
 
 document.addEventListener('DOMContentLoaded', checkVisibility);
+
+
+// loading
+
+		window.onload = function() {
+			const aglLoadScreen = document.querySelector('.angel-loading-progress');
+			const percentText = document.querySelector('.agl-load-percent');
+			const bodyContent = document.querySelector('body');
+			let percent = 0;
+			const interval = setInterval(() => {
+				percent += 1;
+				percentText.textContent = percent + '%';
+				if (percent >= 100) {
+					clearInterval(interval);
+					setTimeout(() => {
+						aglLoadScreen.style.display = 'none';
+					}, 1000);
+				}
+			}, 50);
+		};
