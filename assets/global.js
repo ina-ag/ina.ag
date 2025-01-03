@@ -278,20 +278,27 @@ document.addEventListener('DOMContentLoaded', checkVisibility);
 
 
 // loading
+    window.onload = function() {
+        const aglLoadScreen = document.querySelector('.angel-loading-progress');
+        const percentText = document.querySelector('.agl-load-percent');
+        const bodyContent = document.querySelector('body');
+        
+        if (!aglLoadScreen || !percentText) {
+            return;
+        }
+        
+        let percent = 0;
+        
+        const interval = setInterval(() => {
+            percent += 1;
+            percentText.textContent = percent + '%';
 
-		window.onload = function() {
-			const aglLoadScreen = document.querySelector('.angel-loading-progress');
-			const percentText = document.querySelector('.agl-load-percent');
-			const bodyContent = document.querySelector('body');
-			let percent = 0;
-			const interval = setInterval(() => {
-				percent += 1;
-				percentText.textContent = percent + '%';
-				if (percent >= 100) {
-					clearInterval(interval);
-					setTimeout(() => {
-						aglLoadScreen.style.display = 'none';
-					}, 1000);
-				}
-			}, 50);
-		};
+            if (percent >= 100) {
+                clearInterval(interval);
+                
+                setTimeout(() => {
+                    aglLoadScreen.style.display = 'none';
+                }, 1000);
+            }
+        }, 50);
+    };
