@@ -1,6 +1,7 @@
 // 2024
-// dev_ina
+// dev.ina.ag
 // web design Global
+// Open Source
 // https://www.ina.ag/
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
