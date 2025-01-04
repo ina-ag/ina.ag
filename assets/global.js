@@ -1,7 +1,7 @@
 // 2024
 // dev.ina.ag
 // web design Global
-// Open Source
+// Devina Toko Online
 // https://www.ina.ag/
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
