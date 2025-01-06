@@ -276,6 +276,119 @@ window.addEventListener('scroll', checkVisibility);
 
 document.addEventListener('DOMContentLoaded', checkVisibility);
 
+// slides
+document.addEventListener("DOMContentLoaded", function () {
+  const settings = {
+    delta: 0,
+    currentSlideIndex: 0,
+    scrollThreshold: 40,
+    slides: document.querySelectorAll('.dev-ina-slide'),
+    numSlides: document.querySelectorAll('.dev-ina-slide').length,
+    navPrev: document.querySelector('.dev-prev'),
+    navNext: document.querySelector('.dev-next'),
+    autoSlideInterval: 5000,
+    autoSlideTimer: null,
+    progressBar: document.getElementById('agl-progress-bar'),
+    progressInterval: null,
+    progressBarWidth: 0,
+  };
+
+  if (!settings.navPrev) {
+    console.warn("Tombol 'Previous' tidak ditemukan. support@ina.ag");
+  }
+
+  if (!settings.navNext) {
+    console.warn("Tombol 'Next' tidak ditemukan. support@ina.ag");
+  }
+
+  if (!settings.progressBar) {
+    console.warn("Progres bar tidak ditemukan. support@ina.ag");
+  }
+
+  function bindEvents() {
+    if (settings.navPrev) {
+      settings.navPrev.addEventListener('click', prevSlide);
+      settings.navPrev.addEventListener('click', resetAutoSlide);
+    }
+
+    if (settings.navNext) {
+      settings.navNext.addEventListener('click', nextSlide);
+      settings.navNext.addEventListener('click', resetAutoSlide);
+    }
+  }
+
+  function showSlide() {
+    settings.delta = 0;
+    if (document.body.classList.contains('dev-ina-is-sliding')) {
+      return;
+    }
+
+    settings.slides.forEach((slide, index) => {
+      slide.classList.toggle('dev-ina-is-active', index === settings.currentSlideIndex);
+      slide.classList.toggle('dev-ina-is-prev', index === settings.currentSlideIndex - 1);
+      slide.classList.toggle('dev-ina-is-next', index === settings.currentSlideIndex + 1);
+    });
+
+    document.body.classList.add('dev-ina-is-sliding');
+    setTimeout(() => {
+      document.body.classList.remove('dev-ina-is-sliding');
+    }, 1000);
+  }
+
+  function prevSlide() {
+    if (settings.currentSlideIndex <= 0) {
+      settings.currentSlideIndex = settings.numSlides;
+    }
+    settings.currentSlideIndex--;
+    showSlide();
+  }
+
+  function nextSlide() {
+    settings.currentSlideIndex++;
+    if (settings.currentSlideIndex >= settings.numSlides) {
+      settings.currentSlideIndex = 0;
+    }
+    showSlide();
+  }
+
+  function startAutoSlide() {
+    if (settings.progressBar) {
+      settings.progressBarWidth = 0;
+      aglProgressBar();
+
+      settings.progressInterval = setInterval(() => {
+        settings.progressBarWidth += 1;
+        aglProgressBar();
+
+        if (settings.progressBarWidth >= 100) {
+          nextSlide();
+          resetProgressBar();
+        }
+      }, settings.autoSlideInterval / 100);
+    }
+  }
+
+  function aglProgressBar() {
+    if (settings.progressBar) {
+      settings.progressBar.style.width = `${settings.progressBarWidth}%`;
+    }
+  }
+
+  function resetProgressBar() {
+    if (settings.progressBar) {
+      settings.progressBarWidth = 0;
+      aglProgressBar();
+    }
+  }
+
+  function resetAutoSlide() {
+    clearInterval(settings.progressInterval);
+    startAutoSlide();
+  }
+
+  bindEvents();
+  startAutoSlide();
+});
 
 // loading
     window.onload = function() {
