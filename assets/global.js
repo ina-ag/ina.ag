@@ -389,28 +389,3 @@ document.addEventListener("DOMContentLoaded", function () {
   bindEvents();
   startAutoSlide();
 });
-
-// loading
-window.addEventListener('load', function() {
-    const aglLoadScreen = document.querySelector('.devina-angel-loading-progress');
-    const percentText = document.querySelector('.devina-agl-load-percent');
-    
-    if (!aglLoadScreen || !percentText) {
-        return;
-    }
-    
-    let percent = 0;
-    
-    const interval = setInterval(() => {
-        percent += 1;
-        percentText.textContent = percent + '%';
-
-        if (percent >= 100) {
-            clearInterval(interval);
-
-            setTimeout(() => {
-                aglLoadScreen.style.display = 'none';
-            }, 1000);
-        }
-    }, 50);
-});
