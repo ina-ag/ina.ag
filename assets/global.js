@@ -174,34 +174,21 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
   };
 
 
-// this login
+// this Profil
+	document.addEventListener('DOMContentLoaded', function() {
+    const openMenuProfil = document.getElementById('openMenuProfil');
+    const aglProfilPopup = document.getElementById('aglProfilPopup');
+    const closeProfilPopup = document.getElementById('closeProfilPopup');
+    
 
-document.addEventListener('DOMContentLoaded', function() {
-    const openMenuLogin = document.getElementById('openMenuLogin');
-    const loginPopup = document.getElementById('loginPopup');
-    const closePopup = document.getElementById('closePopup');
-    const loginForm = document.getElementById('loginForm');
-
-    openMenuLogin.addEventListener('click', function() {
-        loginPopup.style.display = 'flex';
+    openMenuProfil.addEventListener('click', function() {
+        aglProfilPopup.style.display = 'flex';
     });
 
-    closePopup.addEventListener('click', function() {
-        loginPopup.style.display = 'none';
-    });
-
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        console.log(`Username: ${username}`);
-        console.log(`Password: ${password}`);
-        alert('Login Successful!');
-        loginPopup.style.display = 'none';
+    closeProfilPopup.addEventListener('click', function() {
+        aglProfilPopup.style.display = 'none';
     });
 });
-
 
 // menu
 
