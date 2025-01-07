@@ -353,14 +353,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startAutoSlide() {
     if (settings.progressBar) {
-      settings.progressBarWidth = 0;
+      settings.progressBarHeight = 0;
       aglProgressBar();
 
       settings.progressInterval = setInterval(() => {
-        settings.progressBarWidth += 1;
+        settings.progressBarHeight += 1;
         aglProgressBar();
 
-        if (settings.progressBarWidth >= 100) {
+        if (settings.progressBarHeight >= 100) {
           nextSlide();
           resetProgressBar();
         }
@@ -370,13 +370,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function aglProgressBar() {
     if (settings.progressBar) {
-      settings.progressBar.style.width = `${settings.progressBarWidth}%`;
+      settings.progressBar.style.height = `${settings.progressBarHeight}%`;
     }
   }
 
   function resetProgressBar() {
     if (settings.progressBar) {
-      settings.progressBarWidth = 0;
+      settings.progressBarHeight = 0;
       aglProgressBar();
     }
   }
@@ -388,4 +388,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   bindEvents();
   startAutoSlide();
+});
+
+
+// loading
+document.addEventListener('DOMContentLoaded', function() {
+    const loadScreen = document.querySelector('.devina-unique-loading-progress');
+    const percentText = document.querySelector('.devina-unique-agl-load-percent');
+
+    if (!loadScreen || !percentText) {
+        return;
+    }
+
+    let percent = 0;
+
+    const interval = setInterval(function() {
+        percent += 1;
+        percentText.textContent = percent + '%';
+
+        if (percent >= 100) {
+            clearInterval(interval);
+            setTimeout(function() {
+                loadScreen.style.display = 'none';
+            }, 1000);
+        }
+    }, 50);
 });
