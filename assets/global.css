@@ -1,0 +1,23 @@
+:root{
+--c1:transparent;
+--c2:transparent;
+--color-x:transparent;
+--devinaWhite:white;
+--devinaBlack:black;
+--devinaRed:red;
+--agl-bg-image:background-image: linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC,#AED7ED);
+--agl-font-family:font-family: "Poppins", serif;
+}
+html {
+scroll-behavior: smooth;
+}
+html,body{padding:0;margin:0}
+.ina-anim {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s ease, transform 1s ease;
+}
+.ina-anim.visible {
+opacity: 1;
+transform: translateY(0);
+}
