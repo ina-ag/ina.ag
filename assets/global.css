@@ -5,8 +5,8 @@
 --devinaWhite:white;
 --devinaBlack:black;
 --devinaRed:red;
---agl-bg-image:background-image: linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC,#AED7ED);
---agl-font-family:font-family: "Poppins", serif;
+--agl-bg-image:linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC,#AED7ED);
+--agl-font-family:"Poppins", serif;
 }
 html {
 scroll-behavior: smooth;
