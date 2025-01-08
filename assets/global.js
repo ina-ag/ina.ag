@@ -401,3 +401,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 50);
 });
+
+// Circle
+  const aglPushcircle = document.querySelector(".devinacircletext");
+
+  if (aglPushcircle) {
+    const text = "posts- posts-";
+
+    text.split("").forEach((char, i) => {
+      const aglchar = document.createElement('div');
+      aglchar.textContent = char;
+
+      if (i % 5 === 0) {
+        aglchar.style.color = '#ffffff';
+      } else if (i % 4 === 0) {
+        aglchar.style.color = '#ffffff';
+      } else if (i % 3 === 0) {
+        aglchar.style.color = '#ffffff';
+      } else if (i % 2 === 0) {
+        aglchar.style.color = '#ffffff';
+      } else {
+        aglchar.style.color = '#ffffff';
+      }
+
+      aglchar.style.textShadow = "4px 4px 8px rgb(0 0 0 / 10%)";
+      
+      aglchar.style.transform = `rotate(${i * 26}deg)`;
+
+      aglPushcircle.appendChild(aglchar);
+    });
+  } else {
+    console.error("Elemen tidak ditemukan. support@ina.ag");
+  }
