@@ -358,6 +358,7 @@ border-radius: 50px;
 
 .modal-footer a:hover {
 background: var(--devinaBlack);
+}
 
 /* popup Profil demo */
 .popupProfil {
