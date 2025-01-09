@@ -435,14 +435,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 // button
-const button = document.getElementById("posts_button");
 
-function triggerShakeAnimation() {
-  button.classList.add("shake");
+  const button = document.getElementById("posts_button");
 
-  setTimeout(() => {
-    button.classList.remove("shake");
-  }, 500);
-}
+  if (button) {
+    function triggerShakeAnimation() {
+      button.classList.add("shake");
 
-setInterval(triggerShakeAnimation, 5000);
+      setTimeout(() => {
+        button.classList.remove("shake");
+      }, 500);
+    }
+
+    setInterval(triggerShakeAnimation, 5000);
+  } else {
+    console.log('halaman demo. fungsi dan fitur sepenuhnya support@ina.ag');
+  }
