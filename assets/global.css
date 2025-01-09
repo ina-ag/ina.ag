@@ -74,6 +74,7 @@ box-shadow: none;
 
 @media (max-width:1200px){
 .xx-footer {
+padding: 0;
 background: transparent;
 color: var(--devinaWhite);
 box-shadow:none;
