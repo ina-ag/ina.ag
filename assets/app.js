@@ -1,6 +1,7 @@
 function applyGridStyles() {
   const blogPosts = document.querySelector('.update-blog-posts');
-  
+  if (!blogPosts) return;
+
   blogPosts.style.display = 'grid';
   blogPosts.style.gridTemplateColumns = 'repeat(3, 1fr)';
   blogPosts.style.gap = '15px';
@@ -38,8 +39,8 @@ function applyGridStyles() {
   }
 
   handleMediaQueries();
-  window.addEventListener('resize', handleMediaQueries);
 }
 
-applyGridStyles();
-
+document.addEventListener('DOMContentLoaded', function() {
+  applyGridStyles();
+});
