@@ -72,6 +72,11 @@ text-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
 box-shadow: none;
 }
 
+@media (max-width: 1200px)
+body.home .xx-footer {
+  padding:15px;
+  }
+}
 @media (max-width:1200px){
 .xx-footer {
 padding: 0;
