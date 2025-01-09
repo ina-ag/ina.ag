@@ -65,10 +65,12 @@ background: transparent;
 color: var(--devinaWhite);
 box-shadow:none;
 }
+}
 
 @media (max-width: 768px) {
 .xx-footer {
 grid-template-columns: 1fr;
+}
 }
   
 @media (max-width: 1200px)
