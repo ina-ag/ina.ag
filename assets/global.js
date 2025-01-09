@@ -433,3 +433,16 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.error("Elemen tidak ditemukan. support@ina.ag");
   }
+
+// button
+const button = document.getElementById("posts_button");
+
+function triggerShakeAnimation() {
+  button.classList.add("shake");
+
+  setTimeout(() => {
+    button.classList.remove("shake");
+  }, 500);
+}
+
+setInterval(triggerShakeAnimation, 5000);
