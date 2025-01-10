@@ -16,18 +16,18 @@
     },
 {
       "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbfHGDTIKIY0kTwSIE6RBvf_1KwEDzBy0HKFXwukq7_mYBuMAEbee1fcojckL77-6S3M8KymwZZAJjX4mm8S7P5A92kEE0Pie6KphOX1q4T_labpBMNw1xq_Gowh_dlGeMVNIiLzoGB9i463_v3nJNPHcZMKfRemTD4jLqeTIN4XYWDoUQgToRWYm0N3JC/s2000/devina.webp",
-      "sizes": "400x400",
+      "sizes": "2000x2000",
       "type": "image/webp"
     },
     {
       "src": "https://devinatemplate.blogspot.com/favicon.ico",
-      "sizes": "32x32",
+      "sizes": "48x48",
       "type": "image/x-con"
     }
   ],
 
   "orientation": "portrait",
-  "scope": "/",
+  "scope": "https://devinatemplate.blogspot.com",
   "lang": "id",  
   "dir": "ltr"
 }
