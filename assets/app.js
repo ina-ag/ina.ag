@@ -39,6 +39,8 @@ function applyGridStyles() {
   }
 
   handleMediaQueries();
+
+  window.addEventListener('resize', handleMediaQueries);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
