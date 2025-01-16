@@ -81,3 +81,22 @@ text-transform: uppercase;
 .save-button:hover {
 background-color: #000;
 }
+
+.preview-button {
+display: flex;
+place-self: flex-end;
+padding: 10px 30px;
+margin: 25px;
+font-size: 16px;
+background-color: hsl(220, 5%, 36%);
+color: white;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+.preview-button:hover {
+background-color: #000;
+}
