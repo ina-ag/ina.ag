@@ -76,3 +76,32 @@ if (backToTopButton) {
   }
 
   window.addEventListener('load', slideUpElements);
+
+const cursor = document.querySelector(".cursor");
+var timeout;
+
+if (cursor) {
+    document.addEventListener("mousemove", (e) => {
+        let x = e.pageX;
+        let y = e.pageY;
+        cursor.style.top = y + "px";
+        cursor.style.left = x + "px";
+        cursor.style.display = "block";
+
+        function mouseStopped() {
+            cursor.style.display = "none";
+        }
+
+        clearTimeout(timeout);
+        timeout = setTimeout(mouseStopped, 5000);
+    });
+
+    document.addEventListener("mouseout", () => {
+        cursor.style.display = "none";
+    });
+}
+
+if (m1.indexOf("?m=1", "?m=1") > 0) {
+    var clean = m1.substring(0, m1.indexOf("?m=1"));
+    window.history.replaceState({}, document.title, clean);
+}
