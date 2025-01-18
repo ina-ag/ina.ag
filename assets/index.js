@@ -62,3 +62,17 @@ if (backToTopButton) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 }
+
+  const animateTextElements = document.querySelectorAll('.agl-1');
+
+  function slideUpElements() {
+    if (animateTextElements.length > 0) {
+      animateTextElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('active');
+        }, index * 1000);
+      });
+    }
+  }
+
+  window.addEventListener('load', slideUpElements);
