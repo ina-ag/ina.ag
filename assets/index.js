@@ -105,3 +105,21 @@ if (m1.indexOf("?m=1", "?m=1") > 0) {
     var clean = m1.substring(0, m1.indexOf("?m=1"));
     window.history.replaceState({}, document.title, clean);
 }
+
+const buttons = document.querySelectorAll(".button_shake");
+
+if (buttons.length > 0) {
+  function triggerShakeAnimation(button) {
+    button.classList.add("shake");
+
+    setTimeout(() => {
+      button.classList.remove("shake");
+    }, 500);
+  }
+
+  setInterval(() => {
+    buttons.forEach(button => {
+      triggerShakeAnimation(button);
+    });
+  }, 5000);
+}
