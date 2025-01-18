@@ -47,17 +47,18 @@ document.addEventListener('DOMContentLoaded', checkVisibility);
     color.addEventListener('click', flip);
   }
 
+const backToTopButton = document.getElementById('backToTop');
 
-    const backToTopButton = document.getElementById('backToTop');
-
+if (backToTopButton) {
     window.onscroll = function() {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTopButton.classList.add('show');
-      } else {
-        backToTopButton.classList.remove('show');
-      }
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
     };
 
     backToTopButton.onclick = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+}
