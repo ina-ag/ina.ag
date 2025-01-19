@@ -308,3 +308,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 50);
 });
+
+var m1 = window.location.href;
+if (m1.indexOf("?m=1") > -1) {
+    var clean = m1.split("?m=1")[0];
+    window.history.replaceState({}, document.title, clean);
+}
