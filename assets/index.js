@@ -227,15 +227,19 @@ function removeProduct(productName) {
 function checkCheckoutButton() {
   const checkoutButton = document.querySelector('.checkout-btn');
   if (checkoutButton) {
-    checkoutButton.style.display = cart.length > 0 ? 'inline-block' : 'none'; 
+    if (cart.length > 0) {
+      checkoutButton.classList.add('visible');
+    } else {
+      checkoutButton.classList.remove('visible');
+    }
   }
 }
 
 function checkout() {
   if (cart.length > 0) {
-    window.location.href = "/";
+    window.location.href = "/p/shop.html";
   } else {
-    alert('Keranjang kosong. Silakan tambahkan produk terlebih dahulu.');
+    alert('Keranjang kosong. Memilih layanan terlebih dahulu.');
   }
 }
 
