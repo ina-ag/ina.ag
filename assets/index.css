@@ -1709,7 +1709,7 @@ justify-content:center;
 white-space:nowrap;
 padding:20px 20% 20px;
 height:100px;
-margin-top:50px;
+margin: 50px 0;
 
 }
 @media (max-width:678px){
@@ -1718,6 +1718,7 @@ padding:20px 12% 20px;
 }
 }
 .circle {
+font-family: var(--font-family-3);
 position: relative;
 width: 100%;
 height: 200px;
@@ -1736,11 +1737,20 @@ gap:50px;
 }
 
 .div-circle h2{
-font-size:2.2rem;
+font-size: 6rem;
+font-family: var(--font-family-3);
 color:var(--ina-color-2);
 font-weight:500;
 text-shadow: 4px 4px 8px rgb(0 0 0 / 10%);
 }
+@media (max-width: 1024px) {
+.div-circle h2 {
+font-size: 3rem;
+}}
+@media (max-width: 678px) {
+.div-circle h2 {
+font-size: 2.5rem;
+}}
 
 .devinacircletext {
 position: absolute;
@@ -1847,3 +1857,19 @@ transform: translateX(0);
 
 #section-footer{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:35px;margin-bottom: 50px}#section-footer span,#section-footer button{font-size:4rem}@media only screen and (max-width:768px){#section-footer span,#section-footer button{font-size:2rem}}
 @media only screen and (max-width:480px){#section-footer span,#section-footer button{font-size:1.2rem}}#section-footer span{color:var(--ina-bg-button);text-decoration:underline}#section-footer button{background:var(--ina-bg-button);color:hsl(240, 67%, 94%);border:none;border-radius:50px;padding:15px 50px}
+
+.s-website {
+text-align: center;
+font-family: var(--font-family-3);
+font-size: 6rem;
+text-shadow: var(--text-shadow);
+color: var(--ina-color-2);
+}
+@media (max-width: 1024px) {
+.s-website {
+font-size: 3rem;
+}}
+@media (max-width: 678px) {
+.s-website {
+font-size: 2.5rem;
+}}
