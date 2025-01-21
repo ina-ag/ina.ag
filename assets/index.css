@@ -1,17 +1,17 @@
 :root {
---c1:rgb(90,90,90,.2);
---c2:rgb(60,60,60,.6);
---c3:transparent;
---ina-bg:hsl(0 0% 0%);
---ina-bg-2:hsl(240, 67%, 94%);
---ina-color:hsl(240, 67%, 94%);
---ina-color-2:hsl(0 0% 0%);
---ina-white:white;
---ina-black:black;
---ina-red:red;
---ina-bg-button:hsl(220, 5%, 36%);
---ina-img:linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC, #AED7ED);
---ina-img-2:linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC, #AED7ED);
+--c1: rgb(90,90,90,.2);
+--c2: rgb(60,60,60,.6);
+--c3: transparent;
+--ina-bg: hsl(0 0% 0%);
+--ina-bg-2: hsl(240, 67%, 94%);
+--ina-color: hsl(240, 67%, 94%);
+--ina-color-2: hsl(0 0% 0%);
+--ina-white: white;
+--ina-black: black;
+--ina-red: red;
+--ina-bg-button: hsl(220, 5%, 36%);
+--ina-img: linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC, #AED7ED);
+--ina-img-2: linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC, #AED7ED);
 --text-shadow: none;
 --text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 --box-shadow-none: none;
@@ -23,19 +23,19 @@
 }
 
 :root.mode-light {
---c1:rgb(90,90,90,.06);
---c2:rgb(60,60,60,.06);
---c3:transparent;
---ina-bg:hsl(240, 67%, 94%);
---ina-bg-2:hsl(0 0% 0%);
---ina-color:hsl(0 0% 30%);
---ina-color-2:hsl(240, 67%, 94%);
---ina-black:white;
---ina-white:black;
+--c1: rgb(90,90,90,.06);
+--c2: rgb(60,60,60,.06);
+--c3: transparent;
+--ina-bg: hsl(240, 67%, 94%);
+--ina-bg-2: hsl(0 0% 0%);
+--ina-color: hsl(0 0% 30%);
+--ina-color-2: hsl(240, 67%, 94%);
+--ina-black: white;
+--ina-white: black;
 --ina-red: linear-gradient(268deg, #B6C9E7, #ADBAE7, #BBDAEC, #AED7ED);
---ina-bg-button:hsl(220, 5%, 36%);
---ina-img:linear-gradient(268deg, #000, #000, #000, #000);
---ina-img-2: hsl(240, 67%, 94%);
+--ina-bg-button: hsl(220, 5%, 36%);
+--ina-img: linear-gradient(268deg, #000, #000, #000, #000);
+--ina-img-2: linear-gradient(268deg, hsl(240, 67%, 94%), hsl(240, 67%, 94%), hsl(240, 67%, 94%), hsl(240, 67%, 94%));
 --text-shadow: none;
 --text-shadow-none: 1px 1px 2px rgba(0, 0, 0, 0.2);
 --box-shadow: none;
