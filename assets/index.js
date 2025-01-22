@@ -1,27 +1,28 @@
 const elements = document.querySelectorAll('.ina-anim');
 
-function checkVisibility() {
-    const windowHeight = window.innerHeight;
+if (elements.length > 0) {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
 
-    elements.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top;
-        
-        
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('visible');
-
-        } else {
-            element.classList.remove('visible');
-
-        }
+  function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
     });
+  }
+
+  const observer = new IntersectionObserver(handleIntersection, options);
+
+  elements.forEach(element => {
+    observer.observe(element);
+  });
 }
-
-
-window.addEventListener('scroll', checkVisibility);
-
-
-document.addEventListener('DOMContentLoaded', checkVisibility);
 
   const color = document.querySelector('.theme-color');
 
