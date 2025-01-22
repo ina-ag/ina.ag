@@ -310,4 +310,105 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 50);
 });
 
+let index = 0;
+
+function moveSlide(direction) {
+  const slides = document.querySelector('.agl-testimonials');
+  const totalSlides = document.querySelectorAll('.agl-testimonial').length;
+
+  if (!slides || totalSlides === 0) return;
+
+  index += direction;
+
+  if (index < 0) {
+    index = totalSlides - 1;
+  } else if (index >= totalSlides) {
+    index = 0;
+  }
+
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  aglDot();
+}
+
+function currentSlide(slideIndex) {
+  const slides = document.querySelector('.agl-testimonials');
+  const totalSlides = document.querySelectorAll('.agl-testimonial').length;
+
+  if (!slides || totalSlides === 0) return;
+
+  index = slideIndex;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  aglDot();
+}
+
+function aglDot() {
+  const dots = document.querySelectorAll('.agl-dot');
+  if (dots.length === 0) return;
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index]?.classList.add('active');
+}
+
+setInterval(() => {
+  moveSlide(1);
+}, 3000);
+
+aglDot();
+
+var agl = window.location.href;
+
+if (agl.indexOf("?m=1") > -1) {
+  agl = agl.split("?m=1")[0];
+
+  var metaTag = document.createElement('meta');
+  metaTag.name = "robots";
+  metaTag.content = "noindex";
+  document.getElementsByTagName('head')[0].appendChild(metaTag);
+
+  window.history.replaceState({}, document.title, agl);
+}
+
+const slides = document.querySelectorAll('.agl___slide');
+const indicators = document.querySelectorAll('.agl___indicator-item');
+const carousel = document.querySelector('.agl___carousel');
+
+function handleSlideVisibility(entries) {
+  entries.forEach((entry) => {
+    const slideIndex = entry.target.dataset.index;
+    if (indicators[slideIndex]) {
+      indicators[slideIndex].classList.toggle('agl___expand', entry.isIntersecting);
+    }
+  });
+}
+
+function detectSlideVisibility(slide) {
+  const options = { threshold: 0.2 };
+  const io = new IntersectionObserver(handleSlideVisibility, options);
+  io.observe(slide);
+}
+
+const init = () => {
+  if (slides.length > 0 && indicators.length > 0) {
+    slides.forEach(detectSlideVisibility);
+  }
+};
+
+function moveToSlide(index) {
+  const slide = slides[index];
+  carousel.scrollTo({
+    top: slide.offsetTop,
+    behavior: 'smooth',
+  });
+}
+
+indicators.forEach((indicator, index) => {
+  indicator.addEventListener('click', () => {
+    moveToSlide(index);
+  });
+});
+
+window.addEventListener('load', init, false);
+
 
