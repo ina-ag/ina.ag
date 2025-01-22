@@ -412,4 +412,53 @@ indicators.forEach((indicator, index) => {
 
 window.addEventListener('load', init, false);
 
+  const fluffyBoxes = document.querySelectorAll('.fluffy-box');
 
+  if (fluffyBoxes.length > 0) {
+    fluffyBoxes.forEach(fluffyBox => {
+      fluffyBox.addEventListener('mousemove', function(e) {
+        const rect = fluffyBox.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const offsetX = (e.clientX - centerX) / (rect.width / 2);
+        const offsetY = (e.clientY - centerY) / (rect.height / 2);
+
+        const tiltX = offsetY * 10;
+        const tiltY = offsetX * 10;
+
+        fluffyBox.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      });
+
+      fluffyBox.addEventListener('mouseleave', function() {
+        fluffyBox.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  }
+
+  // img
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+
+          if (img && img.getAttribute('data-src')) {
+            img.src = img.getAttribute('data-src');
+          }
+
+          const source = img.closest('picture') ? img.closest('picture').querySelector('source') : null;
+          if (source && source.getAttribute('data-srcset')) {
+            source.srcset = source.getAttribute('data-srcset');
+          }
+
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '100px 0px',
+    });
+
+    const images = document.querySelectorAll('img[data-src], source[data-srcset]');
+    images.forEach(image => {
+      observer.observe(image);
+    });
