@@ -135,14 +135,20 @@ function addToCart(productName, price) {
   
   renderCart();
   checkCheckoutButton();
-  updateCartIcon();
+  indexCartIcon();
 }
 
-function updateCartIcon() {
+function indexCartIcon() {
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
   const cartCountElement = document.getElementById('cart-count');
   if (cartCountElement) {
     cartCountElement.textContent = cartCount;
+  }
+}
+
+function indexDevice() {
+  if (navigator.vibrate) {
+    navigator.vibrate(100);
   }
 }
 
@@ -168,7 +174,10 @@ function renderCart() {
       
       const decreaseButton = document.createElement('button');
       decreaseButton.textContent = '-';
-      decreaseButton.onclick = function() { updateQuantity(item.name, item.quantity - 1); };
+      decreaseButton.onclick = function() { 
+        updateQuantity(item.name, item.quantity - 1);
+        indexDevice();
+      };
       
       const quantitySpan = document.createElement('span');
       quantitySpan.classList.add('quantity');
@@ -176,11 +185,17 @@ function renderCart() {
 
       const increaseButton = document.createElement('button');
       increaseButton.textContent = '+';
-      increaseButton.onclick = function() { updateQuantity(item.name, item.quantity + 1); };
+      increaseButton.onclick = function() { 
+        updateQuantity(item.name, item.quantity + 1);
+        indexDevice();
+      };
 
       const removeButton = document.createElement('button');
       removeButton.textContent = 'Remove';
-      removeButton.onclick = function() { removeProduct(item.name); };
+      removeButton.onclick = function() { 
+        removeProduct(item.name);
+        indexDevice();
+      };
 
       quantityDiv.appendChild(decreaseButton);
       quantityDiv.appendChild(quantitySpan);
@@ -208,7 +223,7 @@ function updateQuantity(productName, newQuantity) {
   localStorage.setItem('cart', JSON.stringify(cart));
 
   renderCart();
-  updateCartIcon();
+  indexCartIcon();
   checkCheckoutButton();
 }
 
@@ -221,7 +236,7 @@ function removeProduct(productName) {
   localStorage.setItem('cart', JSON.stringify(cart));
 
   renderCart();
-  updateCartIcon();
+  indexCartIcon();
   checkCheckoutButton();
 }
 
@@ -265,7 +280,7 @@ function renderModalCart() {
     modalCartItems.innerHTML = '';
 
     if (cart.length === 0) {
-      modalCartItems.innerHTML = '<p>Keranjang kosong.</p>';
+      modalCartItems.innerHTML = '<p>kosong</p>';
     } else {
       cart.forEach(item => {
         const cartItemDiv = document.createElement('div');
@@ -284,7 +299,7 @@ function renderModalCart() {
 window.onload = function() {
   renderCart();
   checkCheckoutButton();
-  updateCartIcon();
+  indexCartIcon();
 };
 
 // loading
