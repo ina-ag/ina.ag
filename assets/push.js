@@ -36,3 +36,22 @@
   } catch (error) {
   }
 });
+
+        const kodeElement = document.querySelector('#kode_html code');
+
+        if (kodeElement) {
+            let kodeText = kodeElement.innerHTML;
+
+            kodeText = kodeText
+					.replace(/=/g, '<span class="color-blue">=</span>')
+                        .replace(/&lt;/g, '<span class="color-red">&lt;</span>')
+                        .replace(/&gt;/g, '<span class="color-red">&gt;</span>');
+
+            kodeText = kodeText
+                .replace(/(function|const|console\.log|forEach)/g, '<span class="color-blue">$1</span>')
+                .replace(/('.*')/g, '<span class="color-green">$1</span>')
+                .replace(/\d+/g, '<span class="color-red">$&</span>')
+                .replace(/(\/\/.*)/g, '<span class="color-purple">$1</span>');
+
+            kodeElement.innerHTML = kodeText;
+        }
