@@ -1,3 +1,57 @@
+/* posts */
+.post-feeds,
+.feed-links,
+.blog-feeds,
+.status-msg-wrap,
+.status-msg-body,
+.status-msg-border,
+span.post-author.vcard, h2.date-header,
+.home-link,
+.post-timestamp,
+.status-msg-hidden{display:none!important}
+.blog-pager-older-link{float:left}
+.blog-pager-newer-link{float:right}
+  
+.index___post{
+font-size: 15px;
+word-wrap: break-word;
+}
+
+.index___post h1 {
+margin: 0 0 10px;
+}
+.index___post h2,
+.index___post h3,
+.index___post h4,
+.index___post h5,
+.index___post h6 {
+font-family: var(--font-family-3);
+margin-bottom: 10px;
+}
+
+.index___post h1 {
+font-size: 1.6rem;
+}
+.index___post h2 {
+font-size: 1.4rem;
+}
+.index___post h3 {
+font-size: 1.2rem;
+}
+.index___post h4 {
+font-size: 1.1rem;
+}
+.index___post h5 {
+font-size: 1rem;
+}
+.index___post h6 {
+font-size: 15px;
+}
+.index___post p {
+font-size: 15px;
+margin-bottom:10px;
+}
+
 blockquote {
 scrollbar-color:auto!important;
 }
@@ -130,4 +184,20 @@ code {
 font-family: var(--font-family-2);
 white-space: pre-wrap;
 word-wrap: break-word;
+}
+
+.color-blue {
+color: blue;
+}
+
+.color-green {
+color: green;
+}
+
+.color-red {
+color: red;
+}
+
+.color-purple {
+color: purple;
 }
