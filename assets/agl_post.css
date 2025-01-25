@@ -201,3 +201,58 @@ color: red;
 .color-purple {
 color: purple;
 }
+body.agl-body.item .index___post li{
+font-size: 15px;
+margin-bottom: 10px;
+}
+
+#kode_html,
+blockquote {
+text-align: left;
+}
+
+.video-container {
+position: relative;
+width: 100%;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+background: #000;
+}
+
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: none;
+transition: transform 0.5s ease;
+}
+
+.video-container:hover iframe {
+transform: rotateY(10deg) rotateX(10deg) scale(1.1);
+}
+
+body.agl-body.item .separator {
+position: relative;
+width: 80%;
+max-width: 1200px;
+margin: 0 auto;
+padding-bottom: 40%;
+}
+
+body.agl-body.item .separator picture,
+body.agl-body.item .separator img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+body.agl-body.item .separator img:hover {
+transform: scale(1.05) rotate(5deg);
+}
