@@ -201,7 +201,7 @@ color: red;
 .color-purple {
 color: purple;
 }
-body.agl-body.item .index___post li{
+body.agl-body.postpage .index___post li{
 font-size: 15px;
 margin-bottom: 10px;
 }
@@ -234,7 +234,7 @@ transition: transform 0.5s ease;
 transform: rotateY(10deg) rotateX(10deg) scale(1.1);
 }
 
-body.agl-body.item .separator {
+body.agl-body.postpage .separator {
 position: relative;
 width: 80%;
 max-width: 1200px;
@@ -242,8 +242,8 @@ margin: 0 auto;
 padding-bottom: 40%;
 }
 
-body.agl-body.item .separator picture,
-body.agl-body.item .separator img {
+body.agl-body.postpage .separator picture,
+body.agl-body.postpage .separator img {
 position: absolute;
 top: 0;
 left: 0;
@@ -253,6 +253,6 @@ object-fit: cover;
 transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-body.agl-body.item .separator img:hover {
+body.agl-body.postpage .separator img:hover {
 transform: scale(1.05) rotate(5deg);
 }
