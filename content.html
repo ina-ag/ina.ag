@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<head>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<title>Post Post</title>
+</head>
+<body>
+<h2>loaded</h2>
+<section id="agl_index-recent-posts" style="margin: 0 15px 0;">
+  <div class="agl-tabs ina-anim">
+    <div class="agl-tab agl-active-tab" id="agl-tab-one" onclick="aglShowTabContent('one')">one</div>
+    <div class="agl-tab" id="agl-tab-two" onclick="aglShowTabContent('two')">two</div>
+    <div class="agl-tab" id="agl-tab-three" onclick="aglShowTabContent('three')">three</div>
+  </div>
 
+  <div class="agl-tab-content agl-active ina-anim" id="agl-content-one">
+    <h3>Label: one</h3>
+    <div id="agl-recent-post-list-one"></div>
+  </div>
+
+  <div class="agl-tab-content" id="agl-content-two">
+    <h3>Label: two</h3>
+    <div id="agl-recent-post-list-two"></div>
+  </div>
+
+  <div class="agl-tab-content" id="agl-content-three">
+    <h3>Label: three</h3>
+    <div id="agl-recent-post-list-three"></div>
+  </div>
+</section>
+<script type='text/javascript'>
+//<![CDATA[
+function aglShowTabContent(tabName) {
+document.querySelectorAll('.agl-tab').forEach(tab => tab.classList.remove('agl-active-tab'));
+document.querySelectorAll('.agl-tab-content').forEach(content => content.classList.remove('agl-active'));
+document.getElementById('agl-tab-' + tabName).classList.add('agl-active-tab');
+document.getElementById('agl-content-' + tabName).classList.add('agl-active');
+}
+
+function aglShowRecentPosts(listId, feedUrl, callbackName) {
+var e = document.getElementById(listId);
+var thumbSize = 150;
+
+var script = document.createElement("script");
+script.src = feedUrl + "&callback=" + callbackName;
+document.body.appendChild(script);
+}
+
+function isElementInView(el) {
+const rect = el.getBoundingClientRect();
+return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
+
+function handleScroll() {
+const posts = document.querySelectorAll('.agl-post');
+posts.forEach(post => {
+if (isElementInView(post) && !post.classList.contains('visible')) {
+  post.classList.add('visible');
+} else if (!isElementInView(post) && post.classList.contains('visible')) {
+  post.classList.remove('visible');
+}
+});
+}
+
+window.aglProcessFeedone = function(response) {
+var e = document.getElementById('agl-recent-post-list-one');
+var thumbSize = 150;
+
+if (response.feed && response.feed.entry) {
+var entries = response.feed.entry;
+e.innerHTML = '';
+for (var i = 0; i < entries.length; i++) {
+  var post = entries[i];
+  var title = post.title.$t;
+  var url = post.link.find(function(link) {
+      return link.rel === 'alternate';
+  }).href;
+  var thumbnail = post.content.$t.match(/<img[^>]+src=["']([^"']+)["']/); // perubahan
+  var fullThumbnail = thumbnail ? thumbnail[1] : "data:image/jpeg;base64,/9j/4QCeRXhpZgAATU0AKgAAAAgABQEAAAQAAAABAAAAVQEBAAQAAAABAAAAMIdpAAQAAAABAAAAXgESAAMAAAABAAAAAAEyAAIAAAAUAAAASgAAAAAyMDI0OjEyOjA1IDAwOjQzOjU4AAABkggABAAAAAEAAAAAAAAAAAABATIAAgAAABQAAACCAAAAADIwMjQ6MTI6MDUgMDA6NDM6NTgA/+AAEEpGSUYAAQEAAAEAAQAA/9sAQwABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/9sAQwEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/8AAEQgAMABVAwEiAAIRAQMRAf/EABUAAQEAAAAAAAAAAAAAAAAAAAAI/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABUBAQEAAAAAAAAAAAAAAAAAAAAK/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AncBTQnvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/Z";
+
+  var postDiv = '<div class="agl-post ina-anim">' +
+      '<a href="' + url + '">' +
+      '<img src="' + fullThumbnail + '" width="' + thumbSize + '" height="' + thumbSize + '" alt="" />' +
+      '<p>' + title + '</p>' +
+      '</a>' +
+      '</div>';
+  e.innerHTML += postDiv;
+}
+} else {
+e.innerHTML = '<div>No recent posts found.</div>';
+}
+}
+
+window.aglProcessFeedtwo = function(response) {
+var e = document.getElementById('agl-recent-post-list-two');
+var thumbSize = 150;
+
+if (response.feed && response.feed.entry) {
+var entries = response.feed.entry;
+e.innerHTML = '';
+for (var i = 0; i < entries.length; i++) {
+  var post = entries[i];
+  var title = post.title.$t;
+  var url = post.link.find(function(link) {
+      return link.rel === 'alternate';
+  }).href;
+  var thumbnail = post.content.$t.match(/<img[^>]+src=["']([^"']+)["']/);
+  var fullThumbnail = thumbnail ? thumbnail[1] : "data:image/jpeg;base64,/9j/4QCeRXhpZgAATU0AKgAAAAgABQEAAAQAAAABAAAAVQEBAAQAAAABAAAAMIdpAAQAAAABAAAAXgESAAMAAAABAAAAAAEyAAIAAAAUAAAASgAAAAAyMDI0OjEyOjA1IDAwOjQzOjU4AAABkggABAAAAAEAAAAAAAAAAAABATIAAgAAABQAAACCAAAAADIwMjQ6MTI6MDUgMDA6NDM6NTgA/+AAEEpGSUYAAQEAAAEAAQAA/9sAQwABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/9sAQwEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/8AAEQgAMABVAwEiAAIRAQMRAf/EABUAAQEAAAAAAAAAAAAAAAAAAAAI/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABUBAQEAAAAAAAAAAAAAAAAAAAAK/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AncBTQnvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/Z";
+
+  var postDiv = '<div class="agl-post ina-anim">' +
+      '<a href="' + url + '">' +
+      '<img src="' + fullThumbnail + '" width="' + thumbSize + '" height="' + thumbSize + '" alt="" />' +
+      '<span>' + title + '</span>' +
+      '</a>' +
+      '</div>';
+  e.innerHTML += postDiv;
+}
+} else {
+e.innerHTML = '<div>No recent posts found.</div>';
+}
+}
+
+window.aglProcessFeedthree = function(response) {
+var e = document.getElementById('agl-recent-post-list-three');
+var thumbSize = 150;
+
+if (response.feed && response.feed.entry) {
+var entries = response.feed.entry;
+e.innerHTML = '';
+for (var i = 0; i < entries.length; i++) {
+  var post = entries[i];
+  var title = post.title.$t;
+  var url = post.link.find(function(link) {
+      return link.rel === 'alternate';
+  }).href;
+  var thumbnail = post.content.$t.match(/<img[^>]+src=["']([^"']+)["']/);
+  var fullThumbnail = thumbnail ? thumbnail[1] : "data:image/jpeg;base64,/9j/4QCeRXhpZgAATU0AKgAAAAgABQEAAAQAAAABAAAAVQEBAAQAAAABAAAAMIdpAAQAAAABAAAAXgESAAMAAAABAAAAAAEyAAIAAAAUAAAASgAAAAAyMDI0OjEyOjA1IDAwOjQzOjU4AAABkggABAAAAAEAAAAAAAAAAAABATIAAgAAABQAAACCAAAAADIwMjQ6MTI6MDUgMDA6NDM6NTgA/+AAEEpGSUYAAQEAAAEAAQAA/9sAQwABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/9sAQwEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/8AAEQgAMABVAwEiAAIRAQMRAf/EABUAAQEAAAAAAAAAAAAAAAAAAAAI/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABUBAQEAAAAAAAAAAAAAAAAAAAAK/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AncBTQnvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/Z";
+
+  var postDiv = '<div class="agl-post ina-anim">' +
+      '<a href="' + url + '">' +
+      '<img src="' + fullThumbnail + '" width="' + thumbSize + '" height="' + thumbSize + '" alt="" />' +
+      '<span>' + title + '</span>' +
+      '</a>' +
+      '</div>';
+  e.innerHTML += postDiv;
+}
+} else {
+e.innerHTML = '<div>No recent posts found.</div>';
+}
+}
+
+aglShowRecentPosts("agl-recent-post-list-one", "https://404-me.blogspot.com/feeds/posts/default/-/Pakaian?alt=json&max-results=6", "aglProcessFeedone");
+aglShowRecentPosts("agl-recent-post-list-two", "/feeds/posts/default/-/xproduct?alt=json&max-results=6", "aglProcessFeedtwo");
+aglShowRecentPosts("agl-recent-post-list-three", "/feeds/posts/default/-/Makanan?alt=json&max-results=6", "aglProcessFeedthree");
+
+window.addEventListener('scroll', handleScroll);
+//]]>
+</script>
+</body>
+</html>
