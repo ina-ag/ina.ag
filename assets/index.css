@@ -905,15 +905,10 @@ background: var(--ina-red);
 
 /* here */
 body.item header {
-background: transparent;
-color: var(--ina-color-2);
-}
-@media (max-width: 1200px) {
-body.item header {
 background: var(--ina-img);
 color: var(--ina-color-2);
 box-shadow: var(--box-shadow);
-}}
+}
 @media (max-width: 1024px) {
 body.item header {
 background: var(--ina-bg-2);
