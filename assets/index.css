@@ -2141,13 +2141,6 @@ body.agl-body.template .agl-intro-wrapper h2 {
 color: var(--ina-color);
 }
 
-.agl-intro.agl-intro-wrapper h2:hover,
-.agl-intro.agl-intro-wrapper span:hover {
-background-image: linear-gradient(to right, var(--ina-bg-2), var(--ina-bg-2), var(--ina-bg))!important;
--webkit-background-clip: text;
-color: transparent!important;
-}
-
 body.agl-body.template #agl-price-s-template h2{
 text-align: center;
 color: var(--ina-color);
