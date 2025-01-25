@@ -1110,13 +1110,6 @@ font-size: 2rem;
 margin-bottom: 15px;
 }
 
-.agl-intro.agl-intro-wrapper h2:hover,
-.agl-intro.agl-intro-wrapper span:hover {
-transform: translateY(-5px);
--webkit-background-clip: text;
-color: transparent;
-}
-
 .btn-contacts {
 font-size: 1.2rem;
 background: transparent;
@@ -1176,11 +1169,6 @@ color:  var(--ina-color-2);
 .agl-intro.agl-intro-wrapper span {
 font-size: 1.5rem;
 color: var(--ina-color-2);
-}
-
-.agl-intro.agl-intro-wrapper h2:hover,
-.agl-intro.agl-intro-wrapper span:hover {
-background-image: linear-gradient(to right, var(--ina-bg), var(--ina-bg), var(--ina-bg-2));
 }}
 
 @media (max-width: 678px) {
@@ -1195,11 +1183,6 @@ color:  var(--ina-color);
 .agl-intro.agl-intro-wrapper span {
 font-size: 1rem;
 color: var(--ina-color);
-}
-
-.agl-intro.agl-intro-wrapper h2:hover,
-.agl-intro.agl-intro-wrapper span:hover {
-background-image: linear-gradient(to right, var(--ina-bg-2), var(--ina-bg-2), var(--ina-bg));
 }}
 
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
@@ -1210,10 +1193,6 @@ color:  var(--ina-color-2);
 
 .agl-intro.agl-intro-wrapper span {
 color: var(--ina-color-2);
-}
-.agl-intro.agl-intro-wrapper h2:hover,
-.agl-intro.agl-intro-wrapper span:hover {
-background-image: linear-gradient(to right, var(--ina-bg), var(--ina-bg), var(--ina-bg-2));
 }}
 
 .area-keranjang-container{
@@ -1415,11 +1394,6 @@ color:  var(--ina-color-2);
 
 body.agl-body.website .agl-intro.agl-intro-wrapper span {
 color: var(--ina-color-2);
-}
-
-body.agl-body.website .agl-intro.agl-intro-wrapper h2:hover,
-body.agl-body.website .agl-intro.agl-intro-wrapper span:hover {
-background-image: linear-gradient(to right, var(--ina-bg), var(--ina-bg), var(--ina-bg-2));
 }
 
 body.agl-body.website .btn-contacts {
@@ -2420,31 +2394,3 @@ text-align: center;
 margin-left: 0;
 }}
 
-body.agl-body.home .agl-intro span:hover,
-body.agl-body.home .agl-intro h2:hover {
-background: linear-gradient(45deg, var(--ina-color), transparent);
--webkit-background-clip: text;
-color: transparent;
-}
-@media (max-width: 1024px) {
-body.agl-body.home .agl-intro span:hover,
-body.agl-body.home .agl-intro h2:hover {
-background: linear-gradient(45deg, var(--ina-color-2), transparent);
--webkit-background-clip: text;
-color: transparent;
-}}
-
-@media (max-width: 678px) {
-body.agl-body.home .agl-intro span:hover,
-body.agl-body.home .agl-intro h2:hover {
-background: linear-gradient(45deg, var(--ina-color), transparent);
--webkit-background-clip: text;
-color: transparent;
-}}
-@media only screen and (orientation: landscape) and (max-width: 1024px) { 
-body.agl-body.home .agl-intro span:hover,
-body.agl-body.home .agl-intro h2:hover {
-background: linear-gradient(45deg, var(--ina-color-2), transparent);
--webkit-background-clip: text;
-color: transparent;
-}}
