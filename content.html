@@ -20,7 +20,8 @@
     <div id="agl-recent-post-list-three"></div>
   </div>
 </section>
-<script>
+<script type='text/javascript'>
+//<![CDATA[
 function aglShowTabContent(tabName) {
 document.querySelectorAll('.agl-tab').forEach(tab => tab.classList.remove('agl-active-tab'));
 document.querySelectorAll('.agl-tab-content').forEach(content => content.classList.remove('agl-active'));
@@ -140,10 +141,10 @@ e.innerHTML = '<div>No recent posts found.</div>';
 }
 }
 
-aglShowRecentPosts("agl-recent-post-list-one", "https://www.ina.ag/feeds/posts/default/-/Blogger?alt=json&max-results=6", "aglProcessFeedone");
+aglShowRecentPosts("agl-recent-post-list-one", "https://www.ina.ag/feeds/posts/default/-/Articles?alt=json&max-results=6", "aglProcessFeedone");
 aglShowRecentPosts("agl-recent-post-list-two", "/feeds/posts/default/-/xproduct?alt=json&max-results=6", "aglProcessFeedtwo");
 aglShowRecentPosts("agl-recent-post-list-three", "/feeds/posts/default/-/Makanan?alt=json&max-results=6", "aglProcessFeedthree");
 
 window.addEventListener('scroll', handleScroll);
-
+//]]>
 </script>
