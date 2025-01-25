@@ -78,45 +78,6 @@ z-index:-1;
 transform:translate3d(0,0,-100vmin);
 }
 
-header {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-padding: 15px 0;
-text-align: center;
-z-index: 3;
-}
-header h1 {
-font-family: var(--font-family-2);
-font-size: 1.3rem;
-text-shadow: var(--text-shadow);
-}
-
-body.feed header {
-background: var(--ina-bg);
-color: var(--ina-color);
-box-shadow: var(--box-shadow-none);
-}
-@media (max-width: 1024px) {
-body.feed header {
-background: var(--ina-img);
-color: var(--ina-color-2);
-box-shadow: var(--box-shadow);
-}}
-@media (max-width: 678px) {
-body.feed header {
-background: var(--ina-bg);
-color: var(--ina-color);
-box-shadow: var(--box-shadow-none);
-}}
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
-body.feed header {
-background: var(--ina-white);
-color: var(--ina-color-2);
-box-shadow: var(--box-shadow);
-}}
-
 .cart-icon {
 position: fixed;
 top: 1.5rem;
@@ -906,24 +867,6 @@ background: var(--ina-red);
 
 /* here */
 
-body.item header {
-background: var(--ina-img);
-color: var(--ina-color-2);
-box-shadow: var(--box-shadow);
-}
-@media (max-width: 1024px) {
-body.item header {
-background: var(--ina-bg-2);
-}}
-@media (max-width: 678px) {
-body.item header {
-background: var(--ina-img);
-}}
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
-body.item header {
-background: var(--ina-white);
-}}
-
 body.item .cart-icon svg {
 fill: var(--ina-color-2);
 }
@@ -1393,11 +1336,6 @@ transform: translateY(0);
 body.agl-body.website {
 background: var(--ina-bg-2)!important;
 min-height:100vh;
-}
-body.agl-body.website header {
-background: var(--ina-bg-2);
-color: var(--ina-color-2);
-box-shadow: var(--box-shadow);
 }
 
 body.agl-body.website .n-m::before,
@@ -2092,12 +2030,11 @@ display:none;
 body.agl-body.template {
 color: var(--ina-color);
 }
-body.agl-body.template,
-body.agl-body.template header {
+body.agl-body.template {
 background: var(--ina-bg);
 }
 
-body.agl-body.template header,
+
 body.agl-body.template .theme-color,
 body.agl-body.template .n-m a:link,
 body.agl-body.template .n-m a:visited,
