@@ -1107,7 +1107,6 @@ margin-bottom: 15px;
 .agl-intro.agl-intro-wrapper h2:hover,
 .agl-intro.agl-intro-wrapper span:hover {
 transform: translateY(-5px);
-background-image: linear-gradient(to right, var(--ina-bg-2), var(--ina-bg-2), var(--ina-bg));
 -webkit-background-clip: text;
 color: transparent;
 }
