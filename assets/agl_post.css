@@ -185,21 +185,17 @@ font-family: var(--font-family-2);
 white-space: pre-wrap;
 word-wrap: break-word;
 }
-
 .color-blue {
-color: blue;
+color: #44a60c;
 }
-
 .color-green {
-color: green;
+color: #6b369c;
 }
-
 .color-red {
-color: red;
+color: #ff1462;
 }
-
 .color-purple {
-color: purple;
+color: #4a4c61;
 }
 body.agl-body.postpage .index___post li{
 font-size: 15px;
