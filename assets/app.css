@@ -103,7 +103,6 @@ transform: translateY(0);
 
 body {
 font-family: var(--font-family-1);
-display: flex;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
