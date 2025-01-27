@@ -377,6 +377,10 @@ var agl = window.location.href;
 
 if (agl.indexOf("?m=1") > -1) {
   agl = agl.split("?m=1")[0];
+  
+  if (agl.indexOf("?max-results=") > -1) {
+    agl = agl.split("?max-results=")[0];
+  }
 
   var metaTag = document.createElement('meta');
   metaTag.name = "robots";
