@@ -1,3 +1,85 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const animateTextElements = document.querySelectorAll('.agl-1');
+
+  if (animateTextElements.length > 0) {
+    function slideUpElements() {
+      animateTextElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('active');
+        }, index * 1000);
+      });
+    }
+
+    window.addEventListener('load', slideUpElements);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var agl = window.location.href;
+
+  if (agl.indexOf("?m=1") > -1) {
+    agl = agl.split("?m=1")[0];
+
+    if (agl.indexOf("?max-results=") > -1) {
+      agl = agl.split("?max-results=")[0];
+    }
+
+    var metaTag = document.createElement('meta');
+    metaTag.name = "robots";
+    metaTag.content = "noindex";
+    document.getElementsByTagName('head')[0].appendChild(metaTag);
+
+    window.history.replaceState({}, document.title, agl);
+  }
+});
+
+
+let lastScrollTop = 0;
+
+function isElementInView(el) {
+    const rect = el.getBoundingClientRect();
+
+    return rect.top < window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+}
+
+function handleScroll() {
+    const aglDomViewport = document.querySelectorAll('.follow-in-up');
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    aglDomViewport.forEach(aglPushItem => {
+        if (isElementInView(aglPushItem)) {
+            if (!aglPushItem.classList.contains('visible')) {
+                aglPushItem.classList.add('visible');
+                aglPushItem.classList.remove('hidden');
+            }
+        } else {
+            aglPushItem.classList.add('hidden');
+            aglPushItem.classList.remove('visible');
+        }
+    });
+
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+}
+
+function handleInitialLoad() {
+    const aglDomViewport = document.querySelectorAll('.follow-in-up');
+    
+    aglDomViewport.forEach(aglPushItem => {
+        if (isElementInView(aglPushItem)) {
+            aglPushItem.classList.add('visible');
+            aglPushItem.classList.remove('hidden');
+        } else {
+            aglPushItem.classList.add('hidden');
+        }
+    });
+}
+
+window.addEventListener('scroll', handleScroll);
+document.addEventListener('DOMContentLoaded', () => {
+    handleInitialLoad();
+    handleScroll();
+});
+
 const color = document.querySelector('.theme-color');
 
   if (color) {
