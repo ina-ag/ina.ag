@@ -115,26 +115,13 @@ box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 @media (max-width: 1024px) {
 blockquote {
 max-height: 250px;
-background: var(--ina-bg);
-color: var(--ina-color);
 }}
 
 @media (max-width: 678px) {
 blockquote {
 max-height: 150px;
-background: var(--ina-bg-2);
-color: var(--ina-color-2);
 }}
 
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
-blockquote {
-max-height: 250px;
-background: var(--ina-bg);
-color: var(--ina-color);
-}}
-
-
-/* Styling #kode_html */
 #kode_html { scrollbar-color: auto!important;
 }
 #kode_html {
@@ -212,7 +199,7 @@ color: #ff1462;
 .color-purple {
 color: #4a4c61;
 }
-body.agl-body.postpage .index___post li{
+body#body.singleitem .index___post li{
 font-size: 15px;
 margin-bottom: 10px;
 }
@@ -245,7 +232,7 @@ transition: transform 0.5s ease;
 transform: rotateY(10deg) rotateX(10deg) scale(1.1);
 }
 
-body.agl-body.postpage .separator {
+body#index.singleitem .separator {
 position: relative;
 width: 80%;
 max-width: 1200px;
@@ -253,8 +240,8 @@ margin: 0 auto;
 padding-bottom: 40%;
 }
 
-body.agl-body.postpage .separator picture,
-body.agl-body.postpage .separator img {
+body#index.singleitem .separator picture,
+body#index.singleitem .separator img {
 position: absolute;
 top: 0;
 left: 0;
@@ -264,56 +251,29 @@ object-fit: cover;
 transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-body.agl-body.postpage .separator img:hover {
+body#index.singleitem .separator img:hover {
 transform: scale(1.05) rotate(5deg);
 }
 
-/* postingan */
-body.agl-body.postingan main {
-margin: 0 250px 0;
-}
-@media (max-width: 1200px) {
-body.agl-body.postingan main{
-margin: 0;
-}}
-
-#ina___index-content {
-margin: 0 25px 0;
-}
-
-body.agl-body.multiitem h1.post-title.entry-title {
+body#index.multiitem h1.post-title.entry-title {
 font-family: var(--font-family-3);
 font-size: 1.6rem;
 margin: 15px;
 transition: all 1s ease;
 }
 
-body.agl-body.multiitem h1.post-title.entry-title a:hover {
+body#index.multiitem h1.post-title.entry-title a:hover {
 transform: translateY(-5px);
 background: var(--ina-img);
 color: transparent;
 -webkit-background-clip: text;
 }
 
-body.agl-body.multiitem h1.post-title.entry-title a{text-decoration: none;color: var(--ina-color);}
+body#index.multiitem h1.post-title.entry-title a{text-decoration: none;color: var(--ina-color);}
 
-@media (max-width: 1024px) {
-body.agl-body.multiitem h1.post-title.entry-title a,
-body.agl-body.multiitem .agl___snnipet {
-color: var(--ina-color-2);
-}}
-@media (max-width: 678px) {
-body.agl-body.multiitem h1.post-title.entry-title a,
-body.agl-body.multiitem .agl___snnipet {
+body#index.multiitem .agl___snnipet {
 color: var(--ina-color);
-}}
-
-
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
-body.agl-body.multiitem h1.post-title.entry-title a,
-body.agl-body.multiitem .agl___snnipet {
-color: var(--ina-color-2);
-}}
+}
 
 .blog-pager {  
 margin-top: 50px;
@@ -358,7 +318,7 @@ background: var(--ina-bg-button);
 transform: translateY(-5px);
 }
 
-body.agl-body.multiitem .post-footer-line.post-footer-line-1 {display:none;}
+body#index.multiitem .post-footer-line.post-footer-line-1 {display:none;}
 .agl___snnipet {
 font-family: var(--font-family-2);
 margin: 15px;
