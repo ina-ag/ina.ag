@@ -12,21 +12,32 @@ span.post-author.vcard, h2.date-header,
 .blog-pager-older-link{float:left}
 .blog-pager-newer-link{float:right}
 
-body.agl-body.multiitem .agl_index-wrapp {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: 1fr;
-  gap: 15px;
+body#index.multiitem #ina___index-content {
+text-align: center;
+}
+
+body#index.multiitem .agl_index-wrapp {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: 1fr;
+gap: 15px;
 }
 @media (max-width: 1024px) {
-body.agl-body.multiitem .agl_index-wrapp {
+body#index.multiitem .agl_index-wrapp {
 grid-template-columns: repeat(2,1fr);
 }}
 @media (max-width: 678px) {
-body.agl-body.multiitem .agl_index-wrapp {
+body#index.multiitem .agl_index-wrapp {
 grid-template-columns: 1fr;
 }}
 
+body#index.multiitem .index___post {
+margin-bottom: 20px;
+}
+
+body#index.multiitem .post-footer {display:none;}
+
+body#index.singleitem {text-align:left;}
 .index___post{
 font-size: 15px;
 word-wrap: break-word;
@@ -69,6 +80,7 @@ margin-bottom:10px;
 
 blockquote {
 scrollbar-color:auto!important;
+text-align: left;
 }
 
 blockquote {
@@ -122,91 +134,9 @@ blockquote {
 max-height: 150px;
 }}
 
-#kode_html { scrollbar-color: auto!important;
-}
-#kode_html {
-direction: rtl;
-}
-
-#kode_html pre {
-direction: ltr;
-}
-#kode_html {
-max-height: 150px;
-overflow-y: scroll;
-padding: 10px;
-background: var(--ina-bg);
-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-font-size: 15px;
-margin: 20px;
-
-position: relative;
-border-radius: 10px;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-transform-style: preserve-3d;
-perspective: 1000px;
-}
-
-#kode_html::-webkit-scrollbar {
-width: 10px;
-height: 10px;
-}
-
-#kode_html::-webkit-scrollbar-track {
-background: linear-gradient(45deg, #ffb3cc, #b3e0ff);
-border-radius: 10px;
-}
-
-#kode_html::-webkit-scrollbar-thumb {
-background: linear-gradient(45deg, #ffcc99, #ffb3e6);
-border-radius: 10px;
-}
-
-#kode_html::-webkit-scrollbar-thumb:hover {
-background: linear-gradient(45deg, #ffb3e6, #ffcc99);
-}
-
-#kode_html:hover {
-transform: rotateX(10deg) rotateY(10deg) scale(1.05);
-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-pre {
-margin: 0;
-padding: 0;
-background: var(--ina-bg);
-color: var(--ina-color);
-border-radius: 5px;
-padding: 10px;
-font-size: 15px;
-overflow: auto;
-}
-
-code {
-font-family: var(--font-family-2);
-white-space: pre-wrap;
-word-wrap: break-word;
-}
-.color-blue {
-color: #44a60c;
-}
-.color-green {
-color: #6b369c;
-}
-.color-red {
-color: #ff1462;
-}
-.color-purple {
-color: #4a4c61;
-}
 body#body.singleitem .index___post li{
 font-size: 15px;
 margin-bottom: 10px;
-}
-
-#kode_html,
-blockquote {
-text-align: left;
 }
 
 .video-container {
@@ -236,7 +166,7 @@ body#index.singleitem .separator {
 position: relative;
 width: 80%;
 max-width: 1200px;
-margin: 0 auto;
+margin: 15px;
 padding-bottom: 40%;
 }
 
@@ -353,4 +283,92 @@ transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 .index___post img:hover {
 transform: scale(1.05) rotate(5deg);
+}
+
+.index___post li{
+margin-bottom: 15px;
+font-size: 15px;
+}
+
+.index___post b,
+.index___post strong {
+font-size: 1rem;
+}
+
+#kode-html {
+text-align: left;
+scrollbar-color: auto!important;
+direction: rtl;
+}
+
+#kode-html pre {
+direction: ltr;
+}
+
+#kode-html {
+max-height: 150px;
+overflow-y: scroll;
+padding: 10px;
+background: var(--ina-bg);
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+font-size: 15px;
+margin: 20px;
+position: relative;
+border-radius: 10px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+transform-style: preserve-3d;
+perspective: 1000px;
+}
+
+#kode-html::-webkit-scrollbar {
+width: 10px;
+height: 10px;
+}
+
+#kode-html::-webkit-scrollbar-track {
+background: linear-gradient(45deg, #ffb3cc, #b3e0ff);
+border-radius: 10px;
+}
+
+#kode-html::-webkit-scrollbar-thumb {
+background: linear-gradient(45deg, #ffcc99, #ffb3e6);
+border-radius: 10px;
+}
+
+#kode-html::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(45deg, #ffb3e6, #ffcc99);
+}
+
+#kode-html:hover {
+transform: rotateX(10deg) rotateY(10deg) scale(1.05);
+box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+pre {
+margin: 0;
+padding: 0;
+background: var(--ina-bg);
+color: var(--ina-color);
+border-radius: 5px;
+padding: 10px;
+font-size: 15px;
+overflow: auto;
+}
+
+code {
+font-family: var(--font-family-2);
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+.color-blue {
+color: #44a60c;
+}
+.color-green {
+color: #6b369c;
+}
+.color-red {
+color: #ff1462;
+}
+.color-purple {
+color: #4a4c61;
 }
