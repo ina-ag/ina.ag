@@ -57,6 +57,102 @@ const color = document.querySelector('.theme-color');
     color.addEventListener('click', flip);
   }
 
+let lastScrollTop = 0;
+
+function isElementInView(el) {
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+}
+
+function handleScroll() {
+    const aglDomViewport = document.querySelectorAll('.follow-in-up');
+    
+    if (aglDomViewport.length === 0) return;
+
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    aglDomViewport.forEach((aglPushItem, index) => {
+        if (!aglPushItem) return;
+
+        const rect = aglPushItem.getBoundingClientRect();
+
+        if (index === 0) {
+            if (rect.bottom <= 200) {
+                aglPushItem.classList.add('first-invisible');
+                aglPushItem.classList.remove('first-visible');
+            } else {
+                aglPushItem.classList.add('first-visible');
+                aglPushItem.classList.remove('first-invisible');
+            }
+        } else {
+            if (isElementInView(aglPushItem)) {
+                if (!aglPushItem.classList.contains('visible')) {
+                    aglPushItem.classList.add('visible');
+                    aglPushItem.classList.remove('hidden');
+                }
+            } else {
+                aglPushItem.classList.add('hidden');
+                aglPushItem.classList.remove('visible');
+            }
+        }
+    });
+
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+}
+
+function handleInitialLoad() {
+    const aglDomViewport = document.querySelectorAll('.follow-in-up');
+    
+    if (aglDomViewport.length === 0) return;
+
+    const firstElement = aglDomViewport[0];
+    if (firstElement) {
+        firstElement.classList.add('first-visible');
+        firstElement.classList.remove('hidden');
+    }
+
+    aglDomViewport.forEach((aglPushItem, index) => {
+        if (index !== 0 && aglPushItem) {
+            if (isElementInView(aglPushItem)) {
+                aglPushItem.classList.add('visible');
+                aglPushItem.classList.remove('hidden');
+            } else {
+                aglPushItem.classList.add('hidden');
+            }
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    handleInitialLoad();
+    handleScroll();
+});
+
+window.addEventListener('scroll', handleScroll);
+
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
+
+function checkSlideUp() {
+  const elements = document.querySelectorAll('.slide_view');
+  
+  if (elements.length === 0) return;
+
+  elements.forEach(el => {
+    if (isElementInViewport(el)) {
+      el.classList.add('visible');
+    } else {
+      el.classList.remove('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkSlideUp);
+document.addEventListener('DOMContentLoaded', checkSlideUp);
+
 const backToTopButton = document.getElementById('backToTop');
 
 if (backToTopButton) {
