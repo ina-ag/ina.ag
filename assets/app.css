@@ -1333,6 +1333,16 @@ display: none;
 }
 }
 
+body#index.home footer,
+body#index.nofound footer {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+padding: 5px 0;
+background: none;
+}
+
 body#index.h-multiitem footer,
 body#index.singleitem footer {
 position: fixed;
