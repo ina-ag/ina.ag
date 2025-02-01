@@ -159,10 +159,11 @@ box-shadow: var(--box-shadow-none);
 width: 100%;
 }
 body#index.singleitem header {
-background: var(--ina-img);
+background: none;
 color: var(--ina-color-2);
-box-shadow: var(--box-shadow);
+box-shadow: none;
 width: 100%;
+border-bottom: 1px solid var(--ina-color-2);
 }
 }
 
@@ -170,6 +171,8 @@ header h1 {
 font-size: 1.3rem;
 font-family: var(--font-family-2);
 font-weight: 400;
+color: var(--ina-color-2);
+text-shadow: var(--text-shadow);
 }
 
 .m__i a {
@@ -1359,8 +1362,8 @@ background: var(--ina-bg);
 box-shadow: var(--box-shadow-none);
 }
 body#index.singleitem footer {
-background: var(--ina-img);
-box-shadow: var(--box-shadow);
+background: none;
+box-shadow: none;
 }
 }
 
@@ -1368,6 +1371,8 @@ box-shadow: var(--box-shadow);
 footer .p_2025 {
 text-align: left;
 margin-left: 1rem;
+color: var(--ina-color-2);
+text-shadow: var(--text-shadow);
 }
 }
 
