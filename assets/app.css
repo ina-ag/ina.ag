@@ -171,8 +171,16 @@ header h1 {
 font-size: 1.3rem;
 font-family: var(--font-family-2);
 font-weight: 400;
+}
+
+body#index.singleitem header h1,
+body#index.nofound header h1 {
 color: var(--ina-color-2);
 text-shadow: var(--text-shadow);
+}
+body#index.multiitem header h1 {
+color: var(--ina-color);
+text-shadow: var(--text-shadow-none);
 }
 
 .m__i a {
@@ -1266,6 +1274,11 @@ color: var(--ina-color-2);
 box-shadow: var(--box-shadow);
 }
 
+body#index.nofound #sidebar {
+background: var(--ina-img-3);
+box-shadow: var(--box-shadow);
+}
+
 #sidebar h2 {
 font-size: 1.5rem;
 font-family: var(--font-family-3);
@@ -1298,11 +1311,17 @@ body#index.singleitem #sidebar a {
 color: var(--ina-color-2);
 }
 
+body#index.nofound #sidebar h2,
+body#index.nofound #sidebar a {
+color: var(--ina-color-2);
+}
+
 body#index.h-multiitem #sidebar a:hover {
 background: var(--ina-img);
 color: var(--ina-color-2);
 }
 
+body#index.nofound #sidebar a,
 body#index.singleitem #sidebar a:hover {
 background: var(--ina-bg);
 color: var(--ina-color);
@@ -1314,15 +1333,6 @@ display: none;
 }
 }
 
-body#index.home footer {
-position: fixed;
-bottom: 0;
-left: 0;
-width: 100%;
-padding: 5px 0;
-
-}
-
 body#index.h-multiitem footer,
 body#index.singleitem footer {
 position: fixed;
@@ -1330,32 +1340,13 @@ bottom: 0;
 left: 0;
 width: 240px;
 padding: 5px 0;
-}
-
-body#index.home footer,
-body#index.h-multiitem footer,
-body#index.singleitem footer {
-background: transparent;
-}
-
-footer .p_2025 {
-font-family: var(--font-family-2);
-font-weight: 400;
-text-align: center;
-}
-body#index.home  footer .p_2025 {
-text-align: left;
-margin-left: 1rem;
+background:none;
 }
 
 @media (max-width: 1200px) {
 body#index.multiitem footer,
 body#index.singleitem footer {
 width: 100%;
-}
-body#index.home footer {
-background: transparent;
-box-shadow:none;
 }
 body#index.h-multiitem footer {
 background: var(--ina-bg);
@@ -1367,13 +1358,25 @@ box-shadow: none;
 }
 }
 
-@media (max-width: 1200px) {
 footer .p_2025 {
+font-family: var(--font-family-2);
+font-weight: 400;
+}
+
+body#index.home footer .p_2025,
+body#index.nofound footer .p_2025 {
 text-align: left;
 margin-left: 1rem;
-color: var(--ina-color-2);
-text-shadow: var(--text-shadow);
 }
+body#index.home footer .p_2025 {
+color: var(--ina-color);
+text-shadow: var(text-shadow-none);
+}
+
+body#index.nofound footer .p_2025,
+body#index.singleitem footer .p_2025 {
+color: var(--ina-color-2);
+text-shadow: var(text-shadow);
 }
 
 body#index.home .menu-wrapp {
