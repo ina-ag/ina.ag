@@ -1,21 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var agl = window.location.href;
-
-  if (agl.indexOf("?m=1") > -1) {
-    agl = agl.split("?m=1")[0];
-
-    if (agl.indexOf("?max-results=") > -1) {
-      agl = agl.split("?max-results=")[0];
-    }
-
-    var metaTag = document.createElement('meta');
-    metaTag.name = "robots";
-    metaTag.content = "noindex";
-    document.getElementsByTagName('head')[0].appendChild(metaTag);
-
-    window.history.replaceState({}, document.title, agl);
-  }
-});
+// js
 
 const color = document.querySelector('.theme-color');
 
