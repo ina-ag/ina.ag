@@ -1,20 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const animateTextElements = document.querySelectorAll('.agl-1');
-
-  if (animateTextElements.length > 0) {
-    function slideUpElements() {
-      animateTextElements.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add('active');
-        }, index * 1000);
-      });
-    }
-
-    window.addEventListener('load', slideUpElements);
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
   var agl = window.location.href;
 
   if (agl.indexOf("?m=1") > -1) {
